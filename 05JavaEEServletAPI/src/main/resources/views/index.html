@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>chushka</title>
+
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+</head>
+
+
+<body>
+
+<div class="container">
+    <main>
+        <div class="jumbotron">
+            <div class="row">
+                <div class="col col-md-12 d-flex justify-content-center">
+                    <h1>Welcome to Chushka application</h1>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="row">
+                <div class="col col-md-12 d-flex justify-content-center">
+                    <p>Check our products below!</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col col-md-12 d-flex justify-content-center">
+                    <ul>
+                        {{allProducts}}
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col col-md-12 d-flex justify-content-center">
+                    <a href="/products/create" class="btn btn-primary" type="submit">Create Product</a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+</div>
+
+</body>
+
+
+</html>

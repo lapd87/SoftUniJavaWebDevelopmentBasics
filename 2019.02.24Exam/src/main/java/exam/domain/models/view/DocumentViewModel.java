@@ -1,0 +1,41 @@
+package exam.domain.models.view;
+
+/**
+ * Created by IntelliJ IDEA.
+ * User: LAPD
+ * Date: 24.2.2019 г.
+ * Time: 11:11 ч.
+ */
+public class DocumentViewModel {
+
+    private String id;
+    private String title;
+    private String content;
+
+    public DocumentViewModel() {
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+}

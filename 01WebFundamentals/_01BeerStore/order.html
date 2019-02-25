@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>SoftUni Beers</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/form.css">
+</head>
+
+<body>
+
+<nav>
+    <div class="topnav">
+        <a class="logo" href="index.html">
+            <img src="images/logo.png" alt="logo">
+        </a>
+        <a href="index.html">
+            Home
+        </a>
+        <a href="all-beers.html">
+            See All Beers
+        </a>
+        <a class="active" href="order.html">
+            Order a Beer
+        </a>
+        <a class="right" href="register.html">
+            Register
+        </a>
+        <a class="right" href="login.html">
+            Log in
+        </a>
+    </div>
+</nav>
+
+<main>
+    <center>
+        <h1>Order</h1>
+        <form>
+
+            <label>Username</label>
+            <select name="brand">
+                <option selected disabled>Select a brand</option>
+                <option value="1">Corona Extra</option>
+                <option value="2">Stella Artois</option>
+                <option value="3">Carlsberg</option>
+                <option value="4">Heineken</option>
+            </select>
+
+            <label>Quantity</label>
+            <input type="number"
+                   placeholder="Enter amount of beers (1-12)"
+                   min="1" max="12"
+                   step="1">
+
+            <label>Destination</label>
+            <select name="destination">
+                <option selected disabled>Select a destination</option>
+                <option value="1">Sofia</option>
+                <option value="2">Rousse</option>
+                <option value="3">Varna</option>
+                <option value="4">Other</option>
+            </select>
+
+            <label>Enter your birthday</label>
+            <input type="date" placeholder="mm/dd/yyyy">
+
+            <label>Comments:</label>
+            <input type="text" placeholder="Place your comments">
+
+            <input type="submit" value="Place order">
+        </form>
+    </center>
+</main>
+
+<footer>
+    <hr/>
+    <p><em>&copy; 2019 &ndash; SoftUni Beers</em></p>
+</footer>
+
+</body>
+
+</html>

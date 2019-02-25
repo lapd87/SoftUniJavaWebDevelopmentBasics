@@ -1,0 +1,66 @@
+<pretty-config xmlns="http://ocpsoft.org/schema/rewrite-config-prettyfaces"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://ocpsoft.org/schema/rewrite-config-prettyfaces
+                      http://ocpsoft.org/xml/ns/prettyfaces/rewrite-config-prettyfaces.xsd">
+
+    <url-mapping id="index">
+        <pattern value="/index" />
+        <view-id value="/faces/view/index.xhtml" />
+    </url-mapping>
+
+    <url-mapping id="index">
+        <pattern value="/index" />
+        <view-id value="/" />
+    </url-mapping>
+
+    <url-mapping id="home">
+        <pattern value="/home" />
+        <view-id value="/faces/view/home.xhtml" />
+    </url-mapping>
+
+    <url-mapping id="register">
+        <pattern value="/register" />
+        <view-id value="/faces/view/register.xhtml" />
+    </url-mapping>
+
+    <url-mapping id="login">
+        <pattern value="/login" />
+        <view-id value="/faces/view/login.xhtml" />
+    </url-mapping>
+
+    <url-mapping id="pending">
+        <pattern value="/pending" />
+        <view-id value="/faces/view/admin/pending.xhtml" />
+    </url-mapping>
+
+    <url-mapping id="shipped">
+        <pattern value="/shipped" />
+        <view-id value="/faces/view/admin/shipped.xhtml" />
+    </url-mapping>
+
+    <url-mapping id="delivered">
+        <pattern value="/delivered" />
+        <view-id value="/faces/view/admin/delivered.xhtml" />
+    </url-mapping>
+
+    <url-mapping id="create-package">
+        <pattern value="/create-package" />
+        <view-id value="/faces/view/admin/create-package.xhtml" />
+    </url-mapping>
+
+    <url-mapping id="details-package">
+        <pattern value="/details-package" />
+        <view-id value="/faces/view/details-package.xhtml" />
+    </url-mapping>
+
+    <url-mapping id="receipts">
+        <pattern value="/receipts" />
+        <view-id value="/faces/view/receipts.xhtml" />
+    </url-mapping>
+
+    <url-mapping id="details-receipt">
+        <pattern value="/details-receipt" />
+        <view-id value="/faces/view/details-receipt.xhtml" />
+    </url-mapping>
+
+</pretty-config>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: LAPD
+  Date: 13.2.2019 г.
+  Time: 10:35 ч.
+-->
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="templates/base-layout.xhtml">
+
+    <ui:define name="body-content">
+
+        <div class="jumbotron justify-content-center jumbotron-background">
+            <div class="row">
+                <div class="col col-md-12 d-flex justify-content-center">
+                    <h1>All Cats!</h1>
+                </div>
+            </div>
+            <hr class="hr-background"/>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">№</th>
+                    <th scope="col">
+                        <h:form>
+                            <h:commandLink action="#{catListBean.sortCatListViewModels('name')}" value="Name"/>
+                        </h:form>
+                    </th>
+                    <th scope="col">
+                        <h:form>
+                            <h:commandLink action="#{catListBean.sortCatListViewModels('breed')}" value="Breed"/>
+                        </h:form>
+                    </th>
+                    <th scope="col">
+                        <h:form>
+                            <h:commandLink action="#{catListBean.sortCatListViewModels('color')}" value="Color"/>
+                        </h:form>
+                    </th>
+                    <th scope="col">
+                        <h:form>
+                            <h:commandLink action="#{catListBean.sortCatListViewModels('gender')}" value="Gender"/>
+                        </h:form>
+                    </th>
+                    <th scope="col">
+                        <h:form>
+                            <h:commandLink action="#{catListBean.sortCatListViewModels('price')}" value="Price"/>
+                        </h:form>
+                    </th>
+                    <th scope="col">
+                        <h:form>
+                            <h:commandLink action="#{catListBean.sortCatListViewModels('addedOn')}" value="Added On"/>
+                        </h:form>
+                    </th>
+                    <th scope="col">Remove</th>
+                </tr>
+                </thead>
+
+                <tbody id="tbody_element">
+                <p:repeat value="#{catListBean.catListViewModels}" var="cat" varStatus="index">
+                    <tr>
+                        <td>#{index.index + 1}</td>
+                        <td>#{cat.name}</td>
+                        <td>#{cat.breed}</td>
+                        <td>#{cat.color}</td>
+                        <td>#{cat.gender}</td>
+                        <td>$#{cat.price}</td>
+                        <td>#{cat.addedOn}</td>
+                        <td>
+                            <h:form>
+                                <h:commandButton action="#{catRemoveBean.remove(cat.id)}"
+                                                 class="btn btn-danger" value="Remove"
+                                                 render="tbody_element"/>
+                                <!--TODO fix wrong deletion-->
+                            </h:form>
+                        </td>
+                    </tr>
+                </p:repeat>
+                </tbody>
+
+            </table>
+        </div>
+
+    </ui:define>
+
+</ui:composition>
+
+</html>

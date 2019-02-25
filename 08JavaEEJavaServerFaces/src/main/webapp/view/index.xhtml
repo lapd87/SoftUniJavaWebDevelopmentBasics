@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: LAPD
+  Date: 13.2.2019 г.
+  Time: 10:35 ч.
+-->
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<ui:composition template="templates/base-layout.xhtml">
+
+    <ui:define name="body-content">
+
+        <div class="container mt-3">
+            <hr style="height: 2px;" class="bg-dark"/>
+            <h1 class="text-center">Employee Register</h1>
+            <hr style="height: 2px;" class="bg-dark"/>
+            <table class="table">
+                <thead>
+                <tr class="row">
+                    <th scope="col" class="col-md-1">#</th>
+                    <th scope="col" class="col-md-2">First Name</th>
+                    <th scope="col" class="col-md-2">Last Name</th>
+                    <th scope="col" class="col-md-3">Position</th>
+                    <th scope="col" class="col-md-1">Salary</th>
+                    <th scope="col" class="col-md-1">Age</th>
+                    <th scope="col" class="col-md-2">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <p:repeat value="#{employeeListBean.employeeListViewModels}" var="employee" varStatus="employees">
+                    <tr class="row">
+                        <th scope="row" class="col-md-1">#{employees.index + 1}</th>
+                        <td class="col-md-2">#{employee.firstName}</td>
+                        <td class="col-md-2">#{employee.lastName}</td>
+                        <td class="col-md-3">#{employee.position}</td>
+                        <td class="col-md-1">
+                            <h:outputText value="#{employee.salary}">
+                                <f:convertNumber type="currency"/>
+                            </h:outputText></td>
+                        <td class="col-md-1">#{employee.age}</td>
+                        <td class="col-md-2">
+                            <h:form>
+                                <h:commandButton action="#{employeeRemoveBean.remove(employee.id)}"
+                                                 class="btn btn-danger" value="Remove"/>
+                            </h:form>
+                        </td>
+                    </tr>
+                </p:repeat>
+                </tbody>
+            </table>
+            <hr style="height: 2px;" class="bg-dark"/>
+            <h:form class="form">
+                <div class="names-holder d-flex justify-content-between">
+                    <div class="form-group w-25">
+                        <h:outputLabel for="firstName" value="First Name"/>
+                        <h:inputText value="#{employeeRegisterBean.employeeRegisterBindingModel.firstName}"
+                                     onkeypress="return (event.which &lt; 48 || event.which &gt; 57);"
+                                     type="text" class="form-control" id="firstName" placeholder="First Name..."
+                                     required="true" requiredMessage="First Name must be filled"/>
+                        <h:message errorClass="alert-danger" for="firstName"/>
+                    </div>
+                    <div class="form-group w-25">
+                        <h:outputLabel for="lastName" value="Last Name"/>
+                        <h:inputText value="#{employeeRegisterBean.employeeRegisterBindingModel.lastName}"
+                                     onkeypress="return (event.which &lt; 48 || event.which &gt; 57);"
+                                     type="text" class="form-control" id="lastName" placeholder="Last Name..."
+                                     required="true" requiredMessage="Last Name must be filled"/>
+                        <h:message errorClass="alert-danger" for="lastName"/>
+                    </div>
+                    <div class="form-group w-25">
+                        <h:outputLabel for="position" value="Position"/>
+                        <h:inputText value="#{employeeRegisterBean.employeeRegisterBindingModel.position}"
+                                     type="text" class="form-control" id="position" placeholder="Position..."
+                                     required="true" requiredMessage="Position must be filled"/>
+                        <h:message errorClass="alert-danger" for="position"/>
+                    </div>
+                </div>
+                <div class="numbers-holders d-flex justify-content-between">
+                    <div class="form-group w-25">
+                        <h:outputLabel for="salary" value="Salary"/>
+                        <h:inputText value="#{employeeRegisterBean.employeeRegisterBindingModel.salary}"
+                                     class="form-control" id="salary" placeholder="Salary..."
+                                     required="true" requiredMessage="Salary must be in format #.##"
+                                     converterMessage="Salary must be in format #.##"
+                                     validatorMessage="Salary must be in format #.##">
+                            <f:convertNumber type="number" minIntegerDigits="1"/>
+                            <f:validateDoubleRange minimum="0"/>
+                        </h:inputText>
+                        <h:message errorClass="alert-danger" for="salary"/>
+                    </div>
+                    <div class="form-submit-holder d-flex justify-content-center w-25">
+                        <h:commandButton action="#{employeeRegisterBean.register}"
+                                         class="btn btn-success mt-4 mb-3 mx-auto w-100" value="Register"/>
+                    </div>
+                    <div class="form-group w-25">
+                        <h:outputLabel for="age" value="Age"/>
+                        <h:inputText value="#{employeeRegisterBean.employeeRegisterBindingModel.age}"
+                                     onkeypress="return (event.which &lt; 57 &amp;&amp; event.which &gt; 48);"
+                                     class="form-control" id="age" placeholder="Age..."
+                                     maxlength="3"
+                                     required="true" requiredMessage="Age must be integer 0-150"
+                                     converterMessage="Age must be integer 0-150"
+                                     validatorMessage="Age must be integer 0-150">
+                            <f:convertNumber type="number" integerOnly="true"
+                                             minIntegerDigits="1" maxIntegerDigits="3"/>
+                            <f:validateLongRange minimum="0" maximum="150"/>
+                        </h:inputText>
+                        <h:message errorClass="alert-danger" for="age"/>
+                    </div>
+                </div>
+            </h:form>
+            <hr style="height: 2px;" class="bg-dark"/>
+            <div class="d-flex justify-content-between">
+                <h5 class="w-50">Total Money Needed:
+                    <h:outputText value="#{employeeListBean.totalSalary}">
+                        <f:convertNumber type="currency"/>
+                    </h:outputText>
+                </h5>
+                <h5 class="w-50 text-right">Average Salary:
+                    <h:outputText value="#{employeeListBean.averageSalary}">
+                        <f:convertNumber type="currency"/>
+                    </h:outputText>
+                </h5>
+            </div>
+            <hr style="height: 2px;" class="bg-dark"/>
+        </div>
+
+    </ui:define>
+
+</ui:composition>
+
+</html>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: LAPD
+  Date: 13.2.2019 г.
+  Time: 10:08 ч.
+-->
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <ui:decorate template="head.xhtml"/>
+</h:head>
+
+<h:body>
+
+    <header>
+        <ui:decorate template="navbar.xhtml"/>
+    </header>
+
+    <main>
+    <ui:insert name="body-content"/>
+    </main>
+
+    <footer>
+        <ui:decorate template="footer.xhtml"/>
+    </footer>
+
+</h:body>
+
+</html>

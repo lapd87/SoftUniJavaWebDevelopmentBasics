@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: LAPD
+  Date: 18.2.2019 г.
+  Time: 10:26 ч.
+-->
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition>
+    <nav class="navbar navbar-expand-lg navbar-background">
+        <h:link outcome="index.xhtml" class="navbar-brand h4" value="FDMC"/>
+        <div class="collapse navbar-collapse justify-content-end row" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active col-md-6">
+                    <h:link outcome="create-cat.xhtml" style="white-space: nowrap;"
+                       class="nav-link h5" value="Create Cat"/>
+                </li>
+                <li class="nav-item active col-md-6">
+                    <h:link outcome="all-cats.xhtml" class="nav-link h5" value="All Cats"/>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</ui:composition>
+
+</html>
